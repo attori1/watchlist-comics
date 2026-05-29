@@ -30,7 +30,7 @@ function App() {
 
     if(nouveauTitre.trim()=== "") return;
 
-    const nouvea: Comic = {
+    const nouveau: Comic = {
       id: Date.now(),
       titre: nouveauTitre,
       serie: "Série inconnue", 
@@ -43,7 +43,6 @@ function App() {
   }
 
   function supprimerComic(id: number){
-
     setComics(comics.filter((c)=> c.id !== id));
 
     function changerStatut(id: number, statut: Statut){
@@ -56,8 +55,37 @@ function App() {
       <div className="app">
         <h1>Ma Watchlist Comics</h1>
 
-        
-      </div>
-    )
-  }
+        <div className="barre-ajout">
+          <input
+            placeholder="Titre du comic à ajouter"
+            value={nouveauTitre}
+            onChange={(e) => setNouveauTitre(e.target.value)}/>
+            <button onClick={ajouterComic}>Ajouter</button>
+        </div>
+
+        {comics.map((c)=>(
+          <div key={c.id} className="comic">
+            <div className="comics-infos">
+            <strong>{c.titre}</strong>
+            <div className="comic-serie">{c.serie}</div>
+          </div>
+
+          <select value={c.statut} onChange={(e) => changerStatut(c.id, e.target.value as Statut)}>
+            <option value="à lire">À lire</option>
+            <option value="en cours">En cours</option>
+            <option value="lu">Lu</option>
+          </select>
+
+          <button onClick={() => supprimerComic(c.id)}>🗑️</button>
+          </div>
+        ))}
+
+        {comics.length === 0 && (
+          <p className="message-vide">Aucun comic. Ajoute-en un !</p>
+        )}
+        </div>
+    );
+  };
 }
+
+export default App;
