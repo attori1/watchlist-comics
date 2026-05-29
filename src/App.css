@@ -1,0 +1,39 @@
+.app {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: sans-serif;
+}
+
+.barre-ajout{
+  display: flex;
+  gap: 8px;
+  margin-bottom:24px;
+}
+
+.barre-ajout input{
+  flex:1;
+  padding: 8px;
+}
+
+.comic{
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comic-infos{
+  flex: 1;
+}
+
+.comic-serie{
+  color: #666;
+  font-size: 14px;
+}
+
+.message-vide{
+  color:#999;
+}

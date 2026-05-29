@@ -44,7 +44,7 @@ function App() {
 
   function supprimerComic(id: number){
     setComics(comics.filter((c)=> c.id !== id));
-
+  }
     function changerStatut(id: number, statut: Statut){
       setComics(
         comics.map((c) => (c.id === id ? { ...c , statut: statut} : c))
@@ -86,6 +86,6 @@ function App() {
         </div>
     );
   };
-}
+
 
 export default App;
